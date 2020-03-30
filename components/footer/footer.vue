@@ -1,14 +1,13 @@
 <template>
-  <div class="footer">
-    <div class="columns container">
-      <div class="column">
-        <p>Criss Web App</p>
-      </div>
-      <div class="column has-text-right">
-        <p>Vuemmerce | Made with ❤</p>
-      </div>
-    </div>
-  </div>
+  <v-footer id=".footer" padless>
+    <v-row>
+      <v-col class="primary lighten-2 py-4 text-center white--text">
+        <p align-center>
+          Made with ❤ | by criss
+        </p>
+      </v-col>
+    </v-row>
+  </v-footer>
 </template>
 
 <script>
@@ -19,7 +18,6 @@ export default {
 
 <style scoped>
 .footer {
-  background: #b9e2fc;
-  color: black;
+  background-color: blue;
 }
 </style>

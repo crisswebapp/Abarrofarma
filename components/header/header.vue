@@ -3,7 +3,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <nuxt-link :to="{ name: 'index' }" class="navbar-item">
-          <h1 class="title is-3 is-flex-mobile"></h1>
+          <h1 class="title is-3 is-flex-mobile" />
         </nuxt-link>
 
         <a
@@ -13,51 +13,51 @@
           aria-expanded="false"
           @click="isMenuOpen = !isMenuOpen"
         >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
         </a>
       </div>
 
       <div class="navbar-menu is-active">
         <div class="navbar-start">
-          <div class="navbar-item field">
-            <VmSearch></VmSearch>
-          </div>
+          <div class="navbar-item field" />
         </div>
 
         <div class="navbar-end">
           <div class="navbar-item social">
             <a href="#" class="icon" :title="facebookTooltip">
-              <i class="fa fa-facebook"></i>
+              <i class="fa fa-facebook" />
             </a>
             <a href="#" class="icon" :title="twitterTooltip">
-              <i class="fa fa-twitter"></i>
+              <i class="fa fa-twitter" />
             </a>
             <a href="#" class="icon" :title="instagramTooltip">
-              <i class="fa fa-instagram"></i>
+              <i class="fa fa-instagram" />
             </a>
             <a href="#" class="icon" :title="linkedinTooltip">
-              <i class="fa fa-linkedin"></i>
+              <i class="fa fa-linkedin" />
             </a>
           </div>
           <div class="navbar-item shopping-cart" @click="showCheckoutModal">
             <span class="icon">
-              <i class="fa fa-shopping-cart"></i>
+              <i class="fa fa-shopping-cart" />
             </span>
-            <span :class="[numProductsAdded > 0 ? 'tag is-info' : '']">{{ numProductsAdded }}</span>
+            <span :class="[numProductsAdded > 0 ? 'tag is-info' : '']">{{
+              numProductsAdded
+            }}</span>
           </div>
         </div>
       </div>
 
       <!-- For mobile and tablet -->
       <div v-show="isMenuOpen" class="navbar-end">
-        <VmMenu></VmMenu>
+        <VmMenu />
       </div>
 
       <!-- For desktop -->
       <div class="navbar-end is-hidden-mobile">
-        <VmMenu></VmMenu>
+        <VmMenu />
       </div>
     </nav>
   </div>
@@ -65,11 +65,9 @@
 
 <script>
 import VmMenu from '../menu/Menu'
-import VmSearch from '../search/Search'
 export default {
   name: 'VmHeader',
   components: {
-    VmSearch,
     VmMenu
   },
   data() {
@@ -84,20 +82,21 @@ export default {
   },
   computed: {
     numProductsAdded() {
-      return this.$store.getters.productsAdded.length
+      return 3
     }
   },
   methods: {
-    showCheckoutModal() {
-      this.$store.commit('showCheckoutModal', true)
-    }
+    showCheckoutModal() {}
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.navbar-brand {
+  background: red;
+}
 .title {
-  background: url('../../static/vuemmerce-logo.png') no-repeat;
+  background: url('') no-repeat;
   background-position: 50% 50%;
   background-size: 165px;
   width: 175px;

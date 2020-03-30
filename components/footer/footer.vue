@@ -1,8 +1,8 @@
 <template>
-  <v-footer id=".footer" padless>
+  <v-footer class="blue darken-1" padless>
     <v-row>
-      <v-col class="primary lighten-2 py-4 text-center white--text">
-        <p align-center>
+      <v-col cols="12" class="text-center">
+        <p class="white--text">
           Made with ❤ | by criss
         </p>
       </v-col>
@@ -15,9 +15,3 @@ export default {
   name: 'VmFooter'
 }
 </script>
-
-<style scoped>
-.footer {
-  background-color: blue;
-}
-</style>

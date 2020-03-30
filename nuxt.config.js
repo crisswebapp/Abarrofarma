@@ -1,3 +1,4 @@
+import colors from 'vuetify/es5/util/colors'
 /* eslint-disable no-unused-vars */
 export default {
   mode: 'universal',
@@ -38,8 +39,9 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
+    ['@nuxtjs/vuetify', {}]
   ],
+
   /*
    ** Nuxt.js modules
    */
@@ -50,6 +52,23 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv'
   ],
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    theme: {
+      light: true,
+      themes: {
+        light: {
+          primary: colors.blue.darken2,
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3
+        }
+      }
+    }
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

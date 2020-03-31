@@ -2,55 +2,71 @@
   <div class="container">
     <div>
       <h1 class="title">
-        Ecomerce
+        AbarroFarma
       </h1>
       <h2 class="subtitle">
-        Ecomerce app
+        Bienvenidos a AbarroFarma
       </h2>
-      <div class="links">
-        <nuxt-link to="/user/user">
-          Link 2
-        </nuxt-link>
-      </div>
+      <v-data-table
+        :headers="headers"
+        :items="desserts"
+        item-key="name"
+        class="elevation-1"
+      >
+      </v-data-table>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  components: {}
+  components: {},
+  data() {
+    return {
+      headers: [
+        {
+          align: 'start',
+          sortable: false,
+          value: 'name'
+        },
+        { text: 'Nombre Producto', value: 'nProducto' },
+        { text: 'Descripcion Producto', value: 'dProducto' },
+        { text: 'Departamento Producto', value: 'depProducto' },
+        { text: 'Precio Producto', value: 'pProducto' }
+      ],
+      desserts: [
+        {
+          nProducto: 'Acetaminofen',
+          dProducto: 'Jarabe 250 ml',
+          depProducto: 'Farmacia',
+          pProducto: 15
+        },
+        {
+          nProducto: 'Trimetose',
+          dProducto: 'Jarabe 250 ml',
+          depProducto: 'Farmacia',
+          pProducto: 10
+        },
+        {
+          nProducto: 'Amoxicilina',
+          dProducto: 'Jarabe 125 ml',
+          depProducto: 'Farmacia',
+          pProducto: 12
+        },
+        {
+          nProducto: 'Azucar',
+          dProducto: 'Una libra',
+          depProducto: 'Abarrote',
+          pProducto: 4
+        },
+        {
+          nProducto: 'Arroz',
+          dProducto: 'Una Libra',
+          depProducto: 'Abarrote',
+          pProducto: 3
+        }
+      ]
+    }
+  }
 }
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>

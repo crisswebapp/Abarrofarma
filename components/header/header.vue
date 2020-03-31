@@ -1,111 +1,56 @@
 <template>
-  <div>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <nuxt-link :to="{ name: 'index' }" class="navbar-item">
-          <h1 class="title is-3 is-flex-mobile" />
+  <v-container class="full-height" fluid>
+    <v-navigation-drawer v-model="drawer" disable-resize-watcher app>
+      <v-list dense>
+        <v-list-item link>
+          <v-list-item-action>
+            <v-icon>mdi-home</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            Home
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link>
+          <v-list-item-action>
+            <v-icon>mdi-contact-mail</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            Contact
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+    <v-app-bar app color="indigo" dark>
+      <v-app-bar-nav-icon
+        class="hidden-md-and-up"
+        @click.stop="drawer = !drawer"
+      />
+      <v-spacer class="hidden-md-and-up"></v-spacer>
+      <v-toolbar-title>
+        <nuxt-link class="title-app" to="/">
+          <h1>Ecomerce App</h1>
         </nuxt-link>
-
-        <a
-          role="button"
-          class="navbar-burger burger"
-          aria-label="menu"
-          aria-expanded="false"
-          @click="isMenuOpen = !isMenuOpen"
-        >
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-        </a>
-      </div>
-
-      <div class="navbar-menu is-active">
-        <div class="navbar-start">
-          <div class="navbar-item field" />
-        </div>
-
-        <div class="navbar-end">
-          <div class="navbar-item social">
-            <a href="#" class="icon" :title="facebookTooltip">
-              <i class="fa fa-facebook" />
-            </a>
-            <a href="#" class="icon" :title="twitterTooltip">
-              <i class="fa fa-twitter" />
-            </a>
-            <a href="#" class="icon" :title="instagramTooltip">
-              <i class="fa fa-instagram" />
-            </a>
-            <a href="#" class="icon" :title="linkedinTooltip">
-              <i class="fa fa-linkedin" />
-            </a>
-          </div>
-          <div class="navbar-item shopping-cart" @click="showCheckoutModal">
-            <span class="icon">
-              <i class="fa fa-shopping-cart" />
-            </span>
-            <span :class="[numProductsAdded > 0 ? 'tag is-info' : '']">{{
-              numProductsAdded
-            }}</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- For mobile and tablet -->
-      <div v-show="isMenuOpen" class="navbar-end">
-        <VmMenu />
-      </div>
-
-      <!-- For desktop -->
-      <div class="navbar-end is-hidden-mobile">
-        <VmMenu />
-      </div>
-    </nav>
-  </div>
+      </v-toolbar-title>
+    </v-app-bar>
+  </v-container>
 </template>
 
 <script>
-import VmMenu from '../menu/Menu'
 export default {
   name: 'VmHeader',
-  components: {
-    VmMenu
-  },
   data() {
-    return {
-      linkedinTooltip: 'Follow us on Linkedin',
-      facebookTooltip: 'Follow us on Facebook',
-      twitterTooltip: 'Follow us on Twitter',
-      instagramTooltip: 'Follow us on Instagram',
-      isCheckoutActive: false,
-      isMenuOpen: false
-    }
-  },
-  computed: {
-    numProductsAdded() {
-      return 3
-    }
-  },
-  methods: {
-    showCheckoutModal() {}
+    return { drawer: false }
   }
 }
 </script>
 
-<style scoped>
-.navbar-brand {
-  background: red;
+<style scrope>
+.title-app {
+  text-decoration: None;
+  color: white;
 }
-.title {
-  background: url('') no-repeat;
-  background-position: 50% 50%;
-  background-size: 165px;
-  width: 175px;
-  height: 35px;
-}
-.shopping-cart {
-  cursor: pointer;
-}
-a {
-  color: grey;
+h1 {
+  color: white;
+  font-size: 24px;
 }
 </style>

@@ -1,21 +1,17 @@
 <template>
-  <div class="container">
-    <div>
-      <h1 class="title">
-        AbarroFarma
-      </h1>
-      <h2 class="subtitle">
-        Bienvenidos a AbarroFarma
-      </h2>
-      <v-data-table
-        :headers="headers"
-        :items="desserts"
-        item-key="name"
-        class="elevation-1"
-      >
-      </v-data-table>
-    </div>
-  </div>
+  <v-container class="fill-height" fluid>
+    <v-row align="center" justify="center">
+      <v-col>
+        <v-data-table
+          :headers="headers"
+          :items="desserts"
+          item-key="name"
+          class="elevation-1"
+        >
+        </v-data-table>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>

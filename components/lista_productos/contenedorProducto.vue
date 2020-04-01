@@ -9,7 +9,7 @@
     </v-row>
     <v-row align="stretch">
       <template v-for="item in listaProductos">
-        <v-col :key="item.id" cols="12" sm="4" md="3" lg="3" align-end flexbox>
+        <v-col :key="item.id" cols="6" sm="4" md="3" lg="3" align-end flexbox>
           <VmProducto :image="item.image" :producto="item" />
         </v-col>
       </template>

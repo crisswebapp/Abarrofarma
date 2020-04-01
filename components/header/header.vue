@@ -1,6 +1,11 @@
 <template>
   <v-container class="full-height" fluid>
-    <v-navigation-drawer v-model="drawer" disable-resize-watcher app>
+    <v-navigation-drawer
+      v-model="drawer"
+      :clipped="$vuetify.breakpoint.lgAndUp"
+      app
+      class="hidden-md-and-up"
+    >
       <v-list dense>
         <v-list-item link>
           <v-list-item-action>
@@ -20,7 +25,12 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar app color="indigo" dark>
+    <v-app-bar
+      :clipped-left="$vuetify.breakpoint.lgAndUp"
+      app
+      color="indigo"
+      dark
+    >
       <v-app-bar-nav-icon
         class="hidden-md-and-up"
         @click.stop="drawer = !drawer"
@@ -39,7 +49,7 @@
 export default {
   name: 'VmHeader',
   data() {
-    return { drawer: false }
+    return { drawer: null }
   }
 }
 </script>

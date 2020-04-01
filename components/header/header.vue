@@ -1,5 +1,5 @@
 <template>
-  <span>
+  <v-container fluid>
     <v-navigation-drawer
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
@@ -37,12 +37,12 @@
       />
       <v-spacer class="hidden-md-and-up"></v-spacer>
       <nuxt-link class="title-app" to="/">
-        <v-toolbar-title style="color:white">
+        <v-toolbar-title class="mx-2" style="color:white">
           Ecomerce App
         </v-toolbar-title>
       </nuxt-link>
     </v-app-bar>
-  </span>
+  </v-container>
 </template>
 
 <script>

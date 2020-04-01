@@ -1,5 +1,5 @@
 <template>
-  <v-container class="full-height" fluid>
+  <span>
     <v-navigation-drawer
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
@@ -36,13 +36,13 @@
         @click.stop="drawer = !drawer"
       />
       <v-spacer class="hidden-md-and-up"></v-spacer>
-      <v-toolbar-title>
-        <nuxt-link class="title-app" to="/">
-          <h1>Ecomerce App</h1>
-        </nuxt-link>
-      </v-toolbar-title>
+      <nuxt-link class="title-app" to="/">
+        <v-toolbar-title style="color:white">
+          Ecomerce App
+        </v-toolbar-title>
+      </nuxt-link>
     </v-app-bar>
-  </v-container>
+  </span>
 </template>
 
 <script>
@@ -59,8 +59,8 @@ export default {
   text-decoration: None;
   color: white;
 }
-h1 {
-  color: white;
-  font-size: 24px;
+a {
+  text-decoration: none;
+  text-decoration-style: solid;
 }
 </style>

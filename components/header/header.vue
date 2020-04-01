@@ -50,6 +50,11 @@ export default {
   name: 'VmHeader',
   data() {
     return { drawer: null }
+  },
+  head() {
+    return {
+      title: 'Ecomerce'
+    }
   }
 }
 </script>

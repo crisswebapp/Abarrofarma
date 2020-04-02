@@ -1,5 +1,22 @@
 <template>
-  <v-container fluid>
+  <v-card class="">
+    <v-app-bar
+      :clipped-left="$vuetify.breakpoint.lgAndUp"
+      app
+      color="indigo"
+      dark
+    >
+      <v-app-bar-nav-icon
+        class="hidden-md-and-up"
+        @click.stop="drawer = !drawer"
+      />
+      <v-spacer class="hidden-md-and-up"></v-spacer>
+      <nuxt-link class="title-app" to="/">
+        <v-toolbar-title class="mx-2" style="color:white">
+          Ecomerce App
+        </v-toolbar-title>
+      </nuxt-link>
+    </v-app-bar>
     <v-navigation-drawer
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
@@ -25,24 +42,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="$vuetify.breakpoint.lgAndUp"
-      app
-      color="indigo"
-      dark
-    >
-      <v-app-bar-nav-icon
-        class="hidden-md-and-up"
-        @click.stop="drawer = !drawer"
-      />
-      <v-spacer class="hidden-md-and-up"></v-spacer>
-      <nuxt-link class="title-app" to="/">
-        <v-toolbar-title class="mx-2" style="color:white">
-          Ecomerce App
-        </v-toolbar-title>
-      </nuxt-link>
-    </v-app-bar>
-  </v-container>
+  </v-card>
 </template>
 
 <script>
@@ -50,11 +50,6 @@ export default {
   name: 'VmHeader',
   data() {
     return { drawer: null }
-  },
-  head() {
-    return {
-      title: 'Ecomerce'
-    }
   }
 }
 </script>

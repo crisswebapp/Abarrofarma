@@ -1,5 +1,5 @@
 <template>
-  <v-container class="my-5" fluid>
+  <v-container class="my-10" fluid>
     <v-row class="full-height">
       <v-col cols="12">
         <v-card>

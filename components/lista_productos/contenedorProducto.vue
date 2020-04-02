@@ -1,5 +1,5 @@
 <template>
-  <v-container class="my-10" dense>
+  <v-container class="my-10" dense fluid>
     <v-row class="full-height">
       <v-col cols="12">
         <v-card>
@@ -35,6 +35,18 @@ export default {
           id: 2,
           titulo: 'Bananos',
           descripcion: 'Estas son unos bananos bonitos',
+          image: 'https://bulma.io/images/placeholders/1280x960.png'
+        },
+        {
+          id: 3,
+          titulo: 'Fresas',
+          descripcion: 'Estas son unas Fresas bonitas',
+          image: 'https://bulma.io/images/placeholders/1280x960.png'
+        },
+        {
+          id: 4,
+          titulo: 'Uvas',
+          descripcion: 'Estas son unas Uvas bonitas',
           image: 'https://bulma.io/images/placeholders/1280x960.png'
         },
         {

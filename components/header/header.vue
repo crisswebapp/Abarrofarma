@@ -4,6 +4,7 @@
       v-model="drawer"
       class="hidden-md-up"
       disable-resize-watcher
+      fixed
       temporary
     >
       <v-list dense>

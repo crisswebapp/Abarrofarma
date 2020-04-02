@@ -6,11 +6,13 @@
       <v-card-text> {{ producto.descripcion }}</v-card-text>
       <v-card-actions>
         <v-row>
-          <v-col cols="12" sm="6" class="ma-1">
-            <v-btn class="my-2 caption" small>
+          <v-col cols="12" class="ma-1">
+            <v-btn color="indigo" dark x-small>
               {{ btnAgregar }}
             </v-btn>
-            <v-icon>mdi-share-variant</v-icon>
+            <v-btn fab dark color="indigo" x-small>
+              <v-icon dark>mdi-share-variant</v-icon>
+            </v-btn>
           </v-col>
         </v-row>
       </v-card-actions>

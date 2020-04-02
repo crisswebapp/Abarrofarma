@@ -8,6 +8,7 @@
         <v-btn class="my-2 font-weight-medium" small>
           {{ btnAgregar }}
         </v-btn>
+        <v-spacer></v-spacer>
         <v-icon class="mx-2">mdi-share-variant</v-icon>
       </v-card-actions>
     </v-card>

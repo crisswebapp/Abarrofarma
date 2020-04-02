@@ -1,10 +1,10 @@
 <template>
-  <v-card class="overflow-hidden">
+  <span>
     <v-app-bar
+      class="py-1"
       :clipped-left="$vuetify.breakpoint.lgAndUp"
-      absolute
-      elevate-on-scrollgi
       color="indigo"
+      app
       dark
     >
       <v-app-bar-nav-icon
@@ -43,7 +43,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-  </v-card>
+  </span>
 </template>
 
 <script>

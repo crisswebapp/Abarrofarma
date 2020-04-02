@@ -1,25 +1,5 @@
 <template>
-  <span>
-    <v-app-bar
-      class="py-1"
-      :clipped-left="$vuetify.breakpoint.lgAndUp"
-      color="indigo"
-      app
-      fixed
-      dense
-      dark
-    >
-      <v-app-bar-nav-icon
-        class="hidden-md-and-up"
-        @click.stop="drawer = !drawer"
-      />
-      <v-spacer class="hidden-md-and-up"></v-spacer>
-      <nuxt-link class="title-app" to="/">
-        <v-toolbar-title class="mx-2" style="color:white">
-          Ecomerce App
-        </v-toolbar-title>
-      </nuxt-link>
-    </v-app-bar>
+  <div>
     <v-navigation-drawer
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
@@ -45,7 +25,27 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-  </span>
+    <v-app-bar
+      class="py-1"
+      :clipped-left="$vuetify.breakpoint.lgAndUp"
+      color="indigo"
+      app
+      fixed
+      dense
+      dark
+    >
+      <v-app-bar-nav-icon
+        class="hidden-md-and-up"
+        @click.stop="drawer = !drawer"
+      />
+      <v-spacer class="hidden-md-and-up"></v-spacer>
+      <nuxt-link class="title-app" to="/">
+        <v-toolbar-title class="mx-2" style="color:white">
+          Ecomerce App
+        </v-toolbar-title>
+      </nuxt-link>
+    </v-app-bar>
+  </div>
 </template>
 
 <script>

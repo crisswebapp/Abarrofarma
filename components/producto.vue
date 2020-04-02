@@ -6,12 +6,12 @@
       <v-card-text> {{ producto.descripcion }}</v-card-text>
       <v-card-actions>
         <v-row>
-          <v-col cols="12" sm="auto" class="ma-1">
-            <v-btn color="indigo" dark x-small>
+          <v-col cols="12">
+            <v-btn color="indigo" dark small>
               {{ btnAgregar }}
             </v-btn>
-            <v-btn fab dark color="indigo" x-small>
-              <v-icon dark>mdi-share-variant</v-icon>
+            <v-btn icon small>
+              <v-icon color="indigo" dark>mdi-share-variant</v-icon>
             </v-btn>
           </v-col>
         </v-row>
@@ -35,7 +35,7 @@ export default {
   },
   data() {
     return {
-      btnAgregar: 'Agregar producto'
+      btnAgregar: 'Agregar Prod..'
     }
   }
 }

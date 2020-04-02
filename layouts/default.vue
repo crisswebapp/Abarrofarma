@@ -1,16 +1,17 @@
 <template>
   <v-app>
-    <VmHeader />
+    <AppNavigation />
     <nuxt />
     <VmFooter />
   </v-app>
 </template>
 
 <script>
-import VmHeader from '~/components/header/header'
+import AppNavigation from '~/components/header/navbar'
+//import VmHeader from '~/components/header/header'
 import VmFooter from '~/components/footer/footer'
 
 export default {
-  components: { VmFooter, VmHeader }
+  components: { VmFooter, AppNavigation }
 }
 </script>

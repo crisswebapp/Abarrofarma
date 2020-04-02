@@ -1,6 +1,6 @@
 <template>
   <span>
-    <v-card>
+    <v-card dense>
       <v-img :src="producto.image"></v-img>
       <v-card-title>{{ producto.titulo }}</v-card-title>
       <v-card-text> {{ producto.descripcion }}</v-card-text>

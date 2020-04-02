@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container dense fluid>
     <VmcontenedorProducto />
   </v-container>
 </template>

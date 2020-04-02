@@ -5,6 +5,8 @@
       :clipped-left="$vuetify.breakpoint.lgAndUp"
       color="indigo"
       app
+      fixed
+      dense
       dark
     >
       <v-app-bar-nav-icon

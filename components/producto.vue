@@ -5,11 +5,14 @@
       <v-card-title>{{ producto.titulo }}</v-card-title>
       <v-card-text> {{ producto.descripcion }}</v-card-text>
       <v-card-actions>
-        <v-btn class="my-2 caption" small>
-          {{ btnAgregar }}
-        </v-btn>
-        <v-spacer></v-spacer>
-        <v-icon class="mx-2">mdi-share-variant</v-icon>
+        <v-row>
+          <v-col cols="12" sm="6" class="ma-1">
+            <v-btn class="my-2 caption" small>
+              {{ btnAgregar }}
+            </v-btn>
+            <v-icon>mdi-share-variant</v-icon>
+          </v-col>
+        </v-row>
       </v-card-actions>
     </v-card>
   </span>

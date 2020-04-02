@@ -7,10 +7,10 @@
       <v-card-actions>
         <v-row>
           <v-col cols="12">
-            <v-btn color="indigo" dark small>
+            <v-btn class="my-2" color="indigo" dark small>
               {{ btnAgregar }}
             </v-btn>
-            <v-btn icon small>
+            <v-btn class="my-2" icon small>
               <v-icon color="indigo" dark>mdi-share-variant</v-icon>
             </v-btn>
           </v-col>

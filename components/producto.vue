@@ -5,7 +5,7 @@
       <v-card-title>{{ producto.titulo }}</v-card-title>
       <v-card-text> {{ producto.descripcion }}</v-card-text>
       <v-card-actions>
-        <v-btn class="my-2 font-weight-medium" small>
+        <v-btn class="my-2 caption" small>
           {{ btnAgregar }}
         </v-btn>
         <v-spacer></v-spacer>

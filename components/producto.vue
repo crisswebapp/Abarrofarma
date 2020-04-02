@@ -21,7 +21,6 @@
     </v-card>
   </span>
 </template>
-
 <script>
 export default {
   name: 'VmProducto',

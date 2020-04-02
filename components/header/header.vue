@@ -1,8 +1,9 @@
 <template>
-  <v-card class="">
+  <v-card class="overflow-hidden">
     <v-app-bar
       :clipped-left="$vuetify.breakpoint.lgAndUp"
-      app
+      absolute
+      elevate-on-scrollgi
       color="indigo"
       dark
     >

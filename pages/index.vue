@@ -1,7 +1,7 @@
 <template>
-  <v-container dense>
+  <div>
     <VmcontenedorProducto />
-  </v-container>
+  </div>
 </template>
 
 <script>

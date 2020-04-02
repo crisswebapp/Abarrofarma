@@ -26,7 +26,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar color="indigo" app dark>
+    <v-toolbar color="indigo" dense dark>
       <v-app-bar-nav-icon
         class="hidden-md-and-up"
         @click.stop="drawer = !drawer"
@@ -37,7 +37,7 @@
           Ecomerce App
         </v-toolbar-title>
       </nuxt-link>
-    </v-app-bar>
+    </v-toolbar>
   </div>
 </template>
 

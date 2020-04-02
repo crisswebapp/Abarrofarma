@@ -26,7 +26,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar color="indigo" dense app dark>
+    <v-app-bar color="indigo" dense fixed dark>
       <v-app-bar-nav-icon
         class="hidden-md-and-up"
         @click.stop="drawer = !drawer"

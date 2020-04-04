@@ -6,14 +6,14 @@
     <v-row align="center" justify="center">
       <v-col cols="12">
         <v-row align="center">
-          <v-col cols="6">
+          <v-col cols="5" sm="6">
             <v-text-field label="Buscar Producto"></v-text-field>
           </v-col>
           <v-col cols="3">
             <v-select :items="tiposBusqueda"></v-select>
           </v-col>
           <v-col cols="3">
-            <v-btn color="indigo" dark>
+            <v-btn color="indigo" dark small>
               Buscar
             </v-btn>
           </v-col>

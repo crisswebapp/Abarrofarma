@@ -1,8 +1,10 @@
 <template>
-  <v-container class="fill-height" fluid>
-    <p>resultado = {{ extencion }}</p>
+  <v-container fluid>
+    <v-card>
+      <v-card-title>Lista Productos</v-card-title>
+    </v-card>
     <v-row align="center" justify="center">
-      <v-col>
+      <v-col cols="12">
         <v-simple-table>
           <template v-slot:default>
             <thead>

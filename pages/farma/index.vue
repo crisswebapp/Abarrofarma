@@ -29,7 +29,9 @@
               <v-card-text> Pocision : {{ infoBusqueda.index }} </v-card-text>
             </v-col>
             <v-col>
-              <v-card-text> Pocision : {{ infoBusqueda.tiempo }} </v-card-text>
+              <v-card-text>
+                Tiempo Busqueda : {{ infoBusqueda.tiempo }}
+              </v-card-text>
             </v-col>
           </v-row>
         </v-card>

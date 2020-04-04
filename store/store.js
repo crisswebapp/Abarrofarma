@@ -101,16 +101,21 @@ class Arbol {
 }
 
 function data() {
+  //se crea el arbol
   let t = new Arbol()
+  //se agrega el nodo principal
   t.agregarNodo('abarrofarmacia')
+  //se agrega el nodo de san marcos
   t.agregarNodo('san marcos', 'abarrofarmacia')
+  //se agrega el nodo se malacatan
   t.agregarNodo('malacatan', 'san marcos')
+  //se agrega el nodo de departamento de abarrotes
   t.agregarNodo('abarrotes', 'malacatan')
-  let leche = new Producto('leche', 15)
-  let azucar = new Producto('azucar', 5)
-  t.agregarNodo(leche, 'abarrotes')
-  t.agregarNodo(azucar, 'abarrotes')
-  t.agregarNodo(new Producto('Papel Higienico', '12'), 'abarrotes')
+  //se agregan productos al nodo de abarrotes
+  t.agregarNodo(new Producto('azucar', '5'), 'abarrotes')
+  t.agregarNodo(new Producto('leche', '12'), 'abarrotes')
+  t.agregarNodo(new Producto('papel', '12'), 'abarrotes')
+
   let result = t.buscarBFS('malacatan')
   return result
 }

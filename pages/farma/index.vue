@@ -19,6 +19,14 @@
           </v-col>
         </v-row>
       </v-col>
+      <v-col>
+        <v-card>
+          <v-row>
+            <v-col>Pocision : {{ pocisionItem }}</v-col>
+            <v-col>Tiempo Busqueda : {{ tiempoBusqueda }}</v-col>
+          </v-row>
+        </v-card>
+      </v-col>
       <v-col cols="12">
         <v-simple-table>
           <template v-slot:default>
@@ -52,6 +60,8 @@ export default {
   data() {
     return {
       items: null,
+      pocisionItem: null,
+      tiempoBusqueda: null,
       tiposBusqueda: ['Busqueda Lineal', 'Busqueda Binaria']
     }
   },

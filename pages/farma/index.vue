@@ -42,6 +42,9 @@
             <thead>
               <tr>
                 <th class="text-left">
+                  Posicion
+                </th>
+                <th class="text-left">
                   Nombre Producto
                 </th>
                 <th class="text-left">
@@ -50,7 +53,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="item in items" :key="item.name">
+              <tr v-for="(item, index) in items" :key="item.name">
+                <td>{{ index }}</td>
                 <td>{{ item.nombre }}</td>
                 <td>{{ item.precio }}</td>
               </tr>

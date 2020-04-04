@@ -100,6 +100,21 @@ class Arbol {
   }
 }
 
+let busLineal = (valor, array) => {
+  let timeNow = Date.now()
+  let n = array.length
+  let res = {}
+  for (let i = 0; i < n; i++) {
+    if (array[i].nombre === valor) {
+      res['index'] = i
+    }
+  }
+  console.log('ahora ' + timeNow / 1000 + 'despues ' + Date.now() / 1000)
+  res['tiempo'] = (Date.now() - timeNow) / 1000
+  console.log('Total Tiempo ' + res.tiempo)
+  return res
+}
+
 function data() {
   //se crea el arbol
   let t = new Arbol()
@@ -119,4 +134,4 @@ function data() {
   let result = t.buscarBFS('malacatan')
   return result
 }
-export { data }
+export { data, busLineal }

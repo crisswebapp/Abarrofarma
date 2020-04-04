@@ -33,7 +33,7 @@
       />
       <v-spacer class="hidden-md-and-up"></v-spacer>
       <nuxt-link class="title-app" to="/">
-        <v-toolbar-title class="mx-2" style="color:white">
+        <v-toolbar-title class="ma-3" style="color:white">
           Ecomerce App
         </v-toolbar-title>
       </nuxt-link>

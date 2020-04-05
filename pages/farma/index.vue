@@ -117,7 +117,7 @@ export default {
     getBusLineal: function(data) {
       this.infoBusqueda = {}
       try {
-        this.infoBusqueda = busLineal(data, this.items)
+        this.infoBusqueda = busLineal(data.toLowerCase().trim(), this.items)
         this.snackbar = false
       } catch (error) {
         this.snackbar = true

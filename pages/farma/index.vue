@@ -53,7 +53,7 @@
         </v-card>
       </v-col>
       <v-col cols="12">
-        <v-simple-table>
+        <v-simple-table height="500">
           <template v-slot:default>
             <thead>
               <tr>

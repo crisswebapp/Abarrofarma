@@ -2,6 +2,7 @@
   <v-container fluid>
     <v-card>
       <v-card-title>Lista Productos</v-card-title>
+      <p>{{ tipoBusqueda }}</p>
       <v-snackbar
         v-model="snackbar"
         :bottom="y === 'bottom'"
@@ -29,7 +30,11 @@
             ></v-text-field>
           </v-col>
           <v-col cols="3">
-            <v-select v-model="modelOp" :items="tiposBusqueda"></v-select>
+            <v-select
+              v-model="tipoBusqueda"
+              label="Tipo Busqueda"
+              :items="tiposBusqueda"
+            ></v-select>
           </v-col>
           <v-col cols="3">
             <v-btn color="indigo" dark small @click="getBusLineal(dataText)">
@@ -95,11 +100,11 @@ export default {
       y: 'top',
       snackbar: false,
       error: null,
-      modelOp: 'Busqueda Lineal',
       dataText: null,
       items: null,
+      tipoBusqueda: 'Busqueda Sequencial',
       infoBusqueda: {},
-      tiposBusqueda: ['Busqueda Lineal', 'Busqueda Binaria']
+      tiposBusqueda: ['Busqueda Sequencial', 'Busqueda Binaria']
     }
   },
   created: function() {
@@ -117,8 +122,14 @@ export default {
     getBusLineal: function(data) {
       this.infoBusqueda = {}
       try {
-        this.infoBusqueda = busLineal(data.toLowerCase().trim(), this.items)
-        this.snackbar = false
+        switch (this.tipoBusqueda) {
+          case 'Busqueda Sequencial':
+            this.infoBusqueda = busLineal(data.toLowerCase().trim(), this.items)
+            this.snackbar = false
+            break
+          case 'Busqueda Binaria':
+            console.log('Busqueda Binaria')
+        }
       } catch (error) {
         this.snackbar = true
         this.error = error

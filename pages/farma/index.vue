@@ -92,7 +92,7 @@ export default {
       mode: '',
       timeout: 2000,
       x: null,
-      y: 'bottom',
+      y: 'top',
       snackbar: false,
       error: null,
       modelOp: 'Busqueda Lineal',

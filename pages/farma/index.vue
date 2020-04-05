@@ -115,6 +115,7 @@ export default {
       })
     },
     getBusLineal: function(data) {
+      this.infoBusqueda = {}
       try {
         this.infoBusqueda = busLineal(data, this.items)
         this.snackbar = false

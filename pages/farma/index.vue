@@ -2,7 +2,6 @@
   <v-container fluid>
     <v-card>
       <v-card-title>Lista Productos</v-card-title>
-      <p>{{ tipoBusqueda }}</p>
       <v-snackbar
         v-model="snackbar"
         :bottom="y === 'bottom'"
@@ -21,77 +20,23 @@
       </v-snackbar>
     </v-card>
     <v-row align="center" justify="center">
-      <v-col cols="12">
-        <v-row align="center">
-          <v-col cols="5" sm="6">
-            <v-text-field
-              v-model="dataText"
-              label="Buscar Producto"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="3">
-            <v-select
-              v-model="tipoBusqueda"
-              label="Tipo Busqueda"
-              :items="tiposBusqueda"
-            ></v-select>
-          </v-col>
-          <v-col cols="3">
-            <v-btn color="indigo" dark small @click="getBusLineal(dataText)">
-              Buscar
-            </v-btn>
-          </v-col>
-        </v-row>
-      </v-col>
-      <v-col>
-        <v-card>
-          <v-card-title>Informacion de busqueda</v-card-title>
-          <v-row>
-            <v-col>
-              <v-card-text> Pocision : {{ infoBusqueda.index }} </v-card-text>
-            </v-col>
-            <v-col>
-              <v-card-text>
-                Tiempo Busqueda : {{ infoBusqueda.tiempo }}
-              </v-card-text>
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-col>
-      <v-col cols="12">
-        <v-simple-table height="500">
-          <template v-slot:default>
-            <thead>
-              <tr>
-                <th class="text-left">
-                  Posicion
-                </th>
-                <th class="text-left">
-                  Nombre Producto
-                </th>
-                <th class="text-left">
-                  precio
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(item, index) in items" :key="item.name">
-                <td>{{ index }}</td>
-                <td>{{ item.nombre }}</td>
-                <td>{{ item.precio }}</td>
-              </tr>
-            </tbody>
-          </template>
-        </v-simple-table>
-      </v-col>
+      <ContenedorBuscador @click="hacerBusqueda" />
+      <ResultadoBusqueda
+        :pocision="infoBusqueda.index"
+        :tiempo="infoBusqueda.tiempo"
+      />
+      <ContnedorProductos :productos="productos" />
     </v-row>
   </v-container>
 </template>
 
 <script>
 import { data, busLineal } from '~/store/store'
+import ContnedorProductos from '~/components/abarrofarma/contenedorProductos'
+import ResultadoBusqueda from '~/components/abarrofarma/resultadoBusqueda'
+import ContenedorBuscador from '~/components/abarrofarma/contenedorBuscador'
 export default {
-  components: {},
+  components: { ContnedorProductos, ResultadoBusqueda, ContenedorBuscador },
   data() {
     return {
       color: 'error',
@@ -102,10 +47,8 @@ export default {
       snackbar: false,
       error: null,
       dataText: null,
-      items: null,
-      tipoBusqueda: 'Busqueda Sequencial',
-      infoBusqueda: {},
-      tiposBusqueda: ['Busqueda Sequencial', 'Busqueda Binaria']
+      productos: null,
+      infoBusqueda: {}
     }
   },
   created: function() {
@@ -113,19 +56,22 @@ export default {
   },
   methods: {
     generarData: function() {
-      this.items = data().hijos[0].hijos.map(prodcuto => {
+      this.productos = data().hijos[0].hijos.map(prodcuto => {
         let newprod = {}
         newprod['nombre'] = prodcuto.valor.nombre
         newprod['precio'] = prodcuto.valor.precio
         return newprod
       })
     },
-    getBusLineal: function(data) {
+    hacerBusqueda: function(data, tBusqueda) {
       this.infoBusqueda = {}
       try {
-        switch (this.tipoBusqueda) {
+        switch (tBusqueda) {
           case 'Busqueda Sequencial':
-            this.infoBusqueda = busLineal(data.toLowerCase().trim(), this.items)
+            this.infoBusqueda = busLineal(
+              data.toLowerCase().trim(),
+              this.productos
+            )
             this.snackbar = false
             break
           case 'Busqueda Binaria':

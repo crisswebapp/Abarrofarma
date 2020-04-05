@@ -101,7 +101,7 @@ class Arbol {
 }
 
 let busLineal = (valor, array) => {
-  let timeNow = Date.now()
+  let inicio = Date.now() / 1000
   let n = array.length
   let res = {}
   for (let i = 0; i < n; i++) {
@@ -112,7 +112,7 @@ let busLineal = (valor, array) => {
   if (res.index === undefined) {
     throw 'El dato no esta el la lista'
   }
-  res['tiempo'] = (Date.now() - timeNow) / 1000
+  res['tiempo'] = Date.now() / 1000 - inicio
   return res
 }
 

@@ -109,9 +109,10 @@ let busLineal = (valor, array) => {
       res['index'] = i
     }
   }
-  console.log('ahora ' + timeNow / 1000 + 'despues ' + Date.now() / 1000)
+  if (res.index === undefined) {
+    throw 'El dato no esta el la lista'
+  }
   res['tiempo'] = (Date.now() - timeNow) / 1000
-  console.log('Total Tiempo ' + res.tiempo)
   return res
 }
 

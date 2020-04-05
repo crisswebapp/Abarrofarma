@@ -2,6 +2,22 @@
   <v-container fluid>
     <v-card>
       <v-card-title>Lista Productos</v-card-title>
+      <v-snackbar
+        v-model="snackbar"
+        :bottom="y === 'bottom'"
+        :color="color"
+        :left="x === 'left'"
+        :multi-line="mode === 'multi-line'"
+        :right="x === 'right'"
+        :timeout="timeout"
+        :top="y === 'top'"
+        :vertical="mode === 'vertical'"
+      >
+        {{ error }}
+        <v-btn dark text @click="snackbar = false">
+          Close
+        </v-btn>
+      </v-snackbar>
     </v-card>
     <v-row align="center" justify="center">
       <v-col cols="12">
@@ -72,6 +88,13 @@ export default {
   components: {},
   data() {
     return {
+      color: 'error',
+      mode: '',
+      timeout: 2000,
+      x: null,
+      y: 'bottom',
+      snackbar: false,
+      error: null,
       modelOp: 'Busqueda Lineal',
       dataText: null,
       items: null,
@@ -94,8 +117,10 @@ export default {
     getBusLineal: function(data) {
       try {
         this.infoBusqueda = busLineal(data, this.items)
+        this.snackbar = false
       } catch (error) {
-        console.error(error)
+        this.snackbar = true
+        this.error = error
       }
     }
   }

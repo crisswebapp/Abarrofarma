@@ -45,6 +45,7 @@
       </v-col>
       <v-col>
         <v-card>
+          <v-card-title>Informacion de busqueda</v-card-title>
           <v-row>
             <v-col>
               <v-card-text> Pocision : {{ infoBusqueda.index }} </v-card-text>

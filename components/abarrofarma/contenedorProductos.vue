@@ -2,6 +2,11 @@
   <v-col cols="12">
     <v-simple-table height="500">
       <template v-slot:default>
+        <caption class="text-leftgit">
+          {{
+            titulo
+          }}
+        </caption>
         <thead>
           <tr>
             <th class="text-left">
@@ -35,6 +40,11 @@ export default {
       type: Array,
       required: true,
       default: null
+    }
+  },
+  data() {
+    return {
+      titulo: 'Lista de Productos'
     }
   }
 }

@@ -101,21 +101,51 @@ class Arbol {
 }
 
 let busLineal = (valor, array) => {
-  let inicio = Date.now() / 1000
-  let n = array.length
   let res = {}
-  for (let i = 0; i < n; i++) {
-    if (array[i].nombre === valor) {
-      res['index'] = i
+  const tInicio = Date.now() / 1000
+  let encontrado = false
+  let index = 0
+  while (!encontrado && index < array.length) {
+    if (array[index].nombre === valor) {
+      encontrado = true
+      res['index'] = index
+    } else {
+      index += 1
+    }
+  }
+
+  if (res.index === undefined) {
+    throw 'El dato no esta el la lista'
+  }
+  res['tiempo'] = Date.now() / 1000 - tInicio
+  return res
+}
+let busBinaria = (valor, array) => {
+  const tInicio = Date.now() / 1000
+  let res = {}
+  let inicio = 0
+  let final = array.length - 1
+  let encontrado = false
+  let centro
+  console.log('binaria ' + valor)
+  while (encontrado === false && inicio <= final) {
+    centro = Math.floor((inicio + final) / 2)
+    console.log('while ' + centro)
+    if (array[centro].nombre === valor) {
+      encontrado = true
+      res['index'] = centro
+    } else if (array[centro].nombre > valor) {
+      final = centro - 1
+    } else {
+      inicio = centro + 1
     }
   }
   if (res.index === undefined) {
     throw 'El dato no esta el la lista'
   }
-  res['tiempo'] = Date.now() / 1000 - inicio
+  res['tiempo'] = Date.now() / 1000 - tInicio
   return res
 }
-
 function data() {
   //se crea el arbol
   let t = new Arbol()
@@ -172,7 +202,7 @@ function data() {
   t.agregarNodo(new Producto('naranja', '12'), 'abarrotes')
   t.agregarNodo(new Producto('salchica', '10'), 'abarrotes')
   t.agregarNodo(new Producto('tocino', '20'), 'abarrotes')
-  t.agregarNodo(new Producto('jamon ', '5'), 'abarrotes')
+  t.agregarNodo(new Producto('jamon', '5'), 'abarrotes')
   t.agregarNodo(new Producto('chorizo', '10'), 'abarrotes')
   t.agregarNodo(new Producto('suero', '10'), 'abarrotes')
   t.agregarNodo(new Producto('pasta dental', '10'), 'abarrotes')
@@ -184,4 +214,4 @@ function data() {
   let result = t.buscarBFS('malacatan')
   return result
 }
-export { data, busLineal }
+export { data, busLineal, busBinaria }

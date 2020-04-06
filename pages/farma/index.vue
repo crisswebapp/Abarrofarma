@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { data, busLineal } from '~/store/store'
+import { data, busLineal, busBinaria } from '~/store/store'
 import ContnedorProductos from '~/components/abarrofarma/contenedorProductos'
 import ResultadoBusqueda from '~/components/abarrofarma/resultadoBusqueda'
 import ContenedorBuscador from '~/components/abarrofarma/contenedorBuscador'
@@ -59,12 +59,15 @@ export default {
         newprod['precio'] = prodcuto.valor.precio
         return newprod
       })
+      this.productos = this.productos.sort((a, b) =>
+        a.nombre.localeCompare(b.nombre)
+      )
     },
     hacerBusqueda(data, tBusqueda) {
       this.infoBusqueda = {}
       try {
         switch (tBusqueda) {
-          case 'Busqueda Sequencial':
+          case 'Busqueda Lineal':
             this.infoBusqueda = busLineal(
               data.toLowerCase().trim(),
               this.productos
@@ -72,7 +75,12 @@ export default {
             this.noti.activar = false
             break
           case 'Busqueda Binaria':
-            console.log('Busqueda Binaria')
+            this.infoBusqueda = busBinaria(
+              data.toLowerCase().trim(),
+              this.productos
+            )
+            this.noti.activar = false
+            break
         }
       } catch (error) {
         this.noti.activar = true

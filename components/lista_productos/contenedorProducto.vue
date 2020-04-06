@@ -50,13 +50,13 @@ export default {
           image: 'https://bulma.io/images/placeholders/1280x960.png'
         },
         {
-          id: 3,
+          id: 5,
           titulo: 'Fresas',
           descripcion: 'Estas son unas Fresas bonitas',
           image: 'https://bulma.io/images/placeholders/1280x960.png'
         },
         {
-          id: 4,
+          id: 6,
           titulo: 'Uvas',
           descripcion: 'Estas son unas Uvas bonitas',
           image: 'https://bulma.io/images/placeholders/1280x960.png'

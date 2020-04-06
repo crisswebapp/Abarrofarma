@@ -28,8 +28,8 @@ export default {
   data() {
     return {
       textoBuscador: '',
-      tipoBusqueda: 'Busqueda Sequencial',
-      tiposBusqueda: ['Busqueda Sequencial', 'Busqueda Binaria']
+      tipoBusqueda: 'Busqueda Lineal',
+      tiposBusqueda: ['Busqueda Lineal', 'Busqueda Binaria']
     }
   },
   methods: {

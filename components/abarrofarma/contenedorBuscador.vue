@@ -29,7 +29,11 @@ export default {
     return {
       textoBuscador: '',
       tipoBusqueda: 'Busqueda Lineal',
-      tiposBusqueda: ['Busqueda Lineal', 'Busqueda Binaria']
+      tiposBusqueda: [
+        'Busqueda Lineal',
+        'Busqueda Binaria',
+        'Busqueda Binaria Recursiva'
+      ]
     }
   },
   methods: {

@@ -1,104 +1,4 @@
-class Producto {
-  constructor(nombre, precio) {
-    this.nombre = nombre
-    this.precio = precio
-  }
-}
-
-class Nodo {
-  constructor(valor) {
-    this.valor = valor
-    this.hijos = []
-  }
-}
-
-class Arbol {
-  constructor() {
-    this.raiz = null
-  }
-
-  buscarBFS(valor) {
-    let lista = [this.raiz]
-    while (lista.length) {
-      const nodo = lista.shift()
-      if (nodo.valor === valor) {
-        return nodo
-      }
-      for (let i = 0; i < nodo.hijos.length; i++) {
-        lista.push(nodo.hijos[i])
-      }
-    }
-    return null
-  }
-  agregarNodo(valor, nodoDestino) {
-    const nodo = new Nodo(valor)
-    const padre = nodoDestino ? this.buscarBFS(nodoDestino) : null
-
-    if (padre) {
-      padre.hijos.push(nodo)
-    } else if (!this.raiz) {
-      this.raiz = nodo
-    } else {
-      throw new Error(
-        'El nodo raiz ya existe, indeque a que nodo se agregara el valor'
-      )
-    }
-  }
-  borrarNodo(valor) {
-    if (this.raiz.valor === valor) {
-      this.raiz = null
-    }
-
-    let lista = [this.raiz]
-
-    while (lista.length) {
-      const nodo = lista.shift()
-      for (let i = 0; i < nodo.hijos.length; i++) {
-        if (nodo.hijos[i].valor === valor) {
-          nodo.hijos.splice(i, 1)
-        } else {
-          lista.push(nodo.hijos[i])
-        }
-      }
-    }
-  }
-  recorrerAncho(fn) {
-    let lista = [this.raiz]
-    while (lista.length) {
-      let nodo = lista.shift()
-      fn && fn(nodo)
-      for (let i = 0; i < nodo.hijos.length; i++) {
-        lista.push(nodo.hijos[i])
-      }
-    }
-  }
-  recorrerProfundida(fn, method) {
-    let actual = this.raiz
-    if (method) {
-      this['_' + method](actual, fn)
-    } else {
-      this._preOrden(actual, fn)
-    }
-  }
-  _preOrden(nodo, fn) {
-    if (!nodo) {
-      return
-    }
-    fn && fn(nodo)
-    for (let i = 0; i < nodo.hijos.length; i++) {
-      this._preOrden(nodo.hijos[i], fn)
-    }
-  }
-  _postOrden(nodo, fn) {
-    if (!nodo) {
-      return
-    }
-    for (let i = 0; i < nodo.hijos.length; i++) {
-      this._postOrden(nodo.hijos[i], fn)
-    }
-    fn && fn(nodo)
-  }
-}
+import { Arbol, Producto } from '~/store/Arbol'
 
 let busLineal = (valor, array) => {
   let res = {}
@@ -127,10 +27,8 @@ let busBinaria = (valor, array) => {
   let final = array.length - 1
   let encontrado = false
   let centro
-  console.log('binaria ' + valor)
   while (encontrado === false && inicio <= final) {
     centro = Math.floor((inicio + final) / 2)
-    console.log('while ' + centro)
     if (array[centro].nombre === valor) {
       encontrado = true
       res['index'] = centro
@@ -146,6 +44,27 @@ let busBinaria = (valor, array) => {
   res['tiempo'] = Date.now() / 1000 - tInicio
   return res
 }
+
+let busBinariaRec = (valor, array, inicio, final) => {
+  const tInicio = Date.now() / 1000
+  let res = {}
+  if (inicio > final) throw 'El dato no esta el la lista'
+  let centro = Math.floor((inicio + final) / 2)
+  if (array[centro].nombre === valor) {
+    res['index'] = centro
+    res['tiempo'] = Date.now() / 1000 - tInicio
+    return res
+  } else {
+    if (valor > array[centro].nombre) {
+      inicio = centro + 1
+      return busBinariaRec(valor, array, inicio, final)
+    } else {
+      final = centro - 1
+      return busBinariaRec(valor, array, inicio, final)
+    }
+  }
+}
+
 function data() {
   //se crea el arbol
   let t = new Arbol()
@@ -176,11 +95,11 @@ function data() {
   t.agregarNodo(new Producto('pastas', '3'), 'abarrotes')
   t.agregarNodo(new Producto('aceitunas', '8'), 'abarrotes')
   t.agregarNodo(new Producto('champinones', '10'), 'abarrotes')
-  t.agregarNodo(new Producto('Frijoles', '9'), 'abarrotes')
+  t.agregarNodo(new Producto('frijoles', '9'), 'abarrotes')
   t.agregarNodo(new Producto('sardina', '7'), 'abarrotes')
   t.agregarNodo(new Producto('atun', '15'), 'abarrotes')
   t.agregarNodo(new Producto('chile enlatado', '5'), 'abarrotes')
-  t.agregarNodo(new Producto('ensalda enlatada', '20'), 'abarrotes')
+  t.agregarNodo(new Producto('ensalada enlatada', '20'), 'abarrotes')
   t.agregarNodo(new Producto('elote enlatado', '12'), 'abarrotes')
   t.agregarNodo(new Producto('sopa enlatada', '5'), 'abarrotes')
   t.agregarNodo(new Producto('fruta enlatada', '25'), 'abarrotes')
@@ -188,7 +107,7 @@ function data() {
   t.agregarNodo(new Producto('margarina', '7'), 'abarrotes')
   t.agregarNodo(new Producto('queso', '20'), 'abarrotes')
   t.agregarNodo(new Producto('papa', '5'), 'abarrotes')
-  t.agregarNodo(new Producto('Cacahuates', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('cacahuates', '10'), 'abarrotes')
   t.agregarNodo(new Producto('nueces', '15'), 'abarrotes')
   t.agregarNodo(new Producto('tortilla de harina', '20'), 'abarrotes')
   t.agregarNodo(new Producto('pan dulce', '2'), 'abarrotes')
@@ -214,4 +133,14 @@ function data() {
   let result = t.buscarBFS('malacatan')
   return result
 }
-export { data, busLineal, busBinaria }
+let Ordenar = (a, b) => {
+  if (a.nombre > b.nombre) {
+    return 1
+  }
+  if (a.nombre < b.nombre) {
+    return -1
+  }
+  // a must be equal to b
+  return 0
+}
+export { data, busLineal, busBinaria, Ordenar, busBinariaRec }

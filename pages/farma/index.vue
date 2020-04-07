@@ -26,7 +26,13 @@
 </template>
 
 <script>
-import { data, busLineal, busBinaria } from '~/store/store'
+import {
+  data,
+  busLineal,
+  busBinaria,
+  Ordenar,
+  busBinariaRec
+} from '~/store/store'
 import ContnedorProductos from '~/components/abarrofarma/contenedorProductos'
 import ResultadoBusqueda from '~/components/abarrofarma/resultadoBusqueda'
 import ContenedorBuscador from '~/components/abarrofarma/contenedorBuscador'
@@ -59,9 +65,7 @@ export default {
         newprod['precio'] = prodcuto.valor.precio
         return newprod
       })
-      this.productos = this.productos.sort((a, b) =>
-        a.nombre.localeCompare(b.nombre)
-      )
+      this.productos = this.productos.sort(Ordenar)
     },
     hacerBusqueda(data, tBusqueda) {
       this.infoBusqueda = {}
@@ -78,6 +82,15 @@ export default {
             this.infoBusqueda = busBinaria(
               data.toLowerCase().trim(),
               this.productos
+            )
+            this.noti.activar = false
+            break
+          case 'Busqueda Binaria Recursiva':
+            this.infoBusqueda = busBinariaRec(
+              data.toLowerCase().trim(),
+              this.productos,
+              0,
+              this.productos.length - 1
             )
             this.noti.activar = false
             break

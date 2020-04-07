@@ -93,9 +93,10 @@ class Arbol {
   }
 }
 class Producto {
-  constructor(nombre, precio) {
+  constructor(nombre, precio, cantidad) {
     this.nombre = nombre
     this.precio = precio
+    this.cantidad = cantidad
   }
 }
 export { Arbol, Nodo, Producto }

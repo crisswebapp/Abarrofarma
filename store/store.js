@@ -8,6 +8,7 @@ let busLineal = (valor, array) => {
   while (!encontrado && index < array.length) {
     if (array[index].nombre === valor) {
       encontrado = true
+      res['info'] = array[index]
       res['index'] = index
     } else {
       index += 1
@@ -18,6 +19,7 @@ let busLineal = (valor, array) => {
     throw 'El dato no esta el la lista'
   }
   res['tiempo'] = Date.now() / 1000 - tInicio
+  console.log(res.info)
   return res
 }
 let busBinaria = (valor, array) => {
@@ -31,6 +33,7 @@ let busBinaria = (valor, array) => {
     centro = Math.floor((inicio + final) / 2)
     if (array[centro].nombre === valor) {
       encontrado = true
+      res['info'] = array[centro]
       res['index'] = centro
     } else if (array[centro].nombre > valor) {
       final = centro - 1
@@ -53,6 +56,7 @@ let busBinariaRec = (valor, array, inicio, final) => {
   if (array[centro].nombre === valor) {
     res['index'] = centro
     res['tiempo'] = Date.now() / 1000 - tInicio
+    res['info'] = array[centro]
     return res
   } else {
     if (valor > array[centro].nombre) {
@@ -77,30 +81,30 @@ function data() {
   //se agrega el nodo de departamento de abarrotes
   t.agregarNodo('abarrotes', 'malacatan')
   //se agregan productos al nodo de abarrotes
-  t.agregarNodo(new Producto('azucar', '5'), 'abarrotes')
-  t.agregarNodo(new Producto('leche', '12'), 'abarrotes')
-  t.agregarNodo(new Producto('papel', '12'), 'abarrotes')
-  t.agregarNodo(new Producto('aceite', '10'), 'abarrotes')
-  t.agregarNodo(new Producto('aderezos', '12'), 'abarrotes')
-  t.agregarNodo(new Producto('cafe', '5'), 'abarrotes')
-  t.agregarNodo(new Producto('avena', '7'), 'abarrotes')
-  t.agregarNodo(new Producto('cereales', '25'), 'abarrotes')
-  t.agregarNodo(new Producto('sal', '3'), 'abarrotes')
-  t.agregarNodo(new Producto('miel', '20'), 'abarrotes')
-  t.agregarNodo(new Producto('mayonesa', '15'), 'abarrotes')
-  t.agregarNodo(new Producto('mermelada', '12'), 'abarrotes')
-  t.agregarNodo(new Producto('te', '6'), 'abarrotes')
-  t.agregarNodo(new Producto('vinagre', '10'), 'abarrotes')
-  t.agregarNodo(new Producto('huevos', '25'), 'abarrotes')
-  t.agregarNodo(new Producto('pastas', '3'), 'abarrotes')
-  t.agregarNodo(new Producto('aceitunas', '8'), 'abarrotes')
-  t.agregarNodo(new Producto('champinones', '10'), 'abarrotes')
-  t.agregarNodo(new Producto('frijoles', '9'), 'abarrotes')
-  t.agregarNodo(new Producto('sardina', '7'), 'abarrotes')
+  t.agregarNodo(new Producto('azucar', '5', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('leche', '12', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('papel', '12', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('aceite', '10', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('aderezos', '12', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('cafe', '5', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('avena', '7', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('cereales', '25', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('sal', '3', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('miel', '20', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('mayonesa', '15', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('mermelada', '12', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('te', '6', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('vinagre', '10', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('huevos', '25', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('pastas', '3', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('aceitunas', '8', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('champinones', '10', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('frijoles', '9', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('sardina', '7', '10'), 'abarrotes')
   t.agregarNodo(new Producto('atun', '15'), 'abarrotes')
-  t.agregarNodo(new Producto('chile enlatado', '5'), 'abarrotes')
-  t.agregarNodo(new Producto('ensalada enlatada', '20'), 'abarrotes')
-  t.agregarNodo(new Producto('elote enlatado', '12'), 'abarrotes')
+  t.agregarNodo(new Producto('chile enlatado', '5', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('ensalada enlatada', '20', '10'), 'abarrotes')
+  t.agregarNodo(new Producto('elote enlatado', '12', '10'), 'abarrotes')
   t.agregarNodo(new Producto('sopa enlatada', '5'), 'abarrotes')
   t.agregarNodo(new Producto('fruta enlatada', '25'), 'abarrotes')
   t.agregarNodo(new Producto('crema', '10'), 'abarrotes')
@@ -109,7 +113,7 @@ function data() {
   t.agregarNodo(new Producto('papa', '5'), 'abarrotes')
   t.agregarNodo(new Producto('cacahuates', '10'), 'abarrotes')
   t.agregarNodo(new Producto('nueces', '15'), 'abarrotes')
-  t.agregarNodo(new Producto('tortilla de harina', '20'), 'abarrotes')
+  t.agregarNodo(new Producto('tortilla de harina', '20', '10'), 'abarrotes')
   t.agregarNodo(new Producto('pan dulce', '2'), 'abarrotes')
   t.agregarNodo(new Producto('aguacate', '3'), 'abarrotes')
   t.agregarNodo(new Producto('ajo', '4'), 'abarrotes')

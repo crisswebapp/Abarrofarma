@@ -19,6 +19,7 @@
       <ResultadoBusqueda
         :pocision="infoBusqueda.index"
         :tiempo="infoBusqueda.tiempo"
+        :nombre="infoBusqueda.info"
       />
       <ContnedorProductos :productos="productos" />
     </v-row>
@@ -59,10 +60,11 @@ export default {
   },
   methods: {
     generarData() {
-      this.productos = data().hijos[0].hijos.map(prodcuto => {
+      this.productos = data().hijos[0].hijos.map(producto => {
         let newprod = {}
-        newprod['nombre'] = prodcuto.valor.nombre
-        newprod['precio'] = prodcuto.valor.precio
+        newprod['nombre'] = producto.valor.nombre
+        newprod['precio'] = producto.valor.precio
+        newprod['cantidad'] = producto.valor.cantidad
         return newprod
       })
       this.productos = this.productos.sort(Ordenar)

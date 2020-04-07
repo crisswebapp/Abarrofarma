@@ -16,7 +16,10 @@
               Nombre Producto
             </th>
             <th class="text-left">
-              precio
+              Precio
+            </th>
+            <th class="text-left">
+              Cantidad
             </th>
           </tr>
         </thead>
@@ -25,6 +28,7 @@
             <td>{{ index }}</td>
             <td>{{ item.nombre }}</td>
             <td>{{ item.precio }}</td>
+            <td>{{ item.cantidad ? item.cantidad : 0 }}</td>
           </tr>
         </tbody>
       </template>

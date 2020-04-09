@@ -15,6 +15,7 @@
       </v-btn>
     </v-snackbar>
     <v-row align="center" justify="center">
+      <Sucursal />
       <ContenedorBuscador @click="hacerBusqueda" />
       <ResultadoBusqueda
         :pocision="infoBusqueda.index"
@@ -34,6 +35,7 @@ import {
   Ordenar,
   busBinariaRec
 } from '~/store/store'
+import Sucursal from '~/components/abarrofarma/sucursal'
 import ContnedorProductos from '~/components/abarrofarma/contenedorProductos'
 import ResultadoBusqueda from '~/components/abarrofarma/resultadoBusqueda'
 import ContenedorBuscador from '~/components/abarrofarma/contenedorBuscador'
@@ -41,7 +43,8 @@ export default {
   components: {
     ContnedorProductos,
     ResultadoBusqueda,
-    ContenedorBuscador
+    ContenedorBuscador,
+    Sucursal
   },
   data() {
     return {
@@ -67,7 +70,7 @@ export default {
         newprod['cantidad'] = producto.valor.cantidad
         return newprod
       })
-      this.productos = this.productos.sort(Ordenar)
+      this.productos = Ordenar(this.productos)
     },
     hacerBusqueda(data, tBusqueda) {
       this.infoBusqueda = {}

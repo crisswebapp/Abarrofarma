@@ -1,5 +1,23 @@
 import { Arbol, Producto } from '~/store/Arbol'
 
+let Ordenar = array => {
+  try {
+    array.sort((a, b) => {
+      if (a.nombre > b.nombre) {
+        return 1
+      }
+      if (a.nombre < b.nombre) {
+        return -1
+      }
+      // a must be equal to b
+      return 0
+    })
+    return array
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 let busLineal = (valor, array) => {
   let res = {}
   const tInicio = Date.now() / 1000
@@ -137,14 +155,5 @@ function data() {
   let result = t.buscarBFS('malacatan')
   return result
 }
-let Ordenar = (a, b) => {
-  if (a.nombre > b.nombre) {
-    return 1
-  }
-  if (a.nombre < b.nombre) {
-    return -1
-  }
-  // a must be equal to b
-  return 0
-}
+
 export { data, busLineal, busBinaria, Ordenar, busBinariaRec }

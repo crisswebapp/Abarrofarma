@@ -38,22 +38,33 @@ export default {
         'Retalhuleu'
       ],
       municipios: {
-        'San Marcos': ['Centro', 'San pablo', 'Malacatan', 'Catarina', 'Tecun'],
+        'San Marcos': [
+          'San Marcos',
+          'San pablo',
+          'Malacatan',
+          'Catarina',
+          'Tecun'
+        ],
         Huehuetenango: [
-          'Centro',
+          'Huehuetenango',
           'Chiantla',
           'Paquix',
           'Malacatancito',
           'Aguacatan'
         ],
         Retalhuleu: [
-          'Centro',
+          'Retalhuleu',
           'Las pilas',
           'Zapotitlan',
           'Mazatenango',
           'Colomba'
         ],
-        Quetzaltenango: ['Centro', 'Salcaja', 'San carlos sija', 'Olintepeque']
+        Quetzaltenango: [
+          'Quetzaltenango',
+          'Salcaja',
+          'San carlos sija',
+          'Olintepeque'
+        ]
       }
     }
   },

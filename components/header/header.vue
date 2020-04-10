@@ -13,15 +13,7 @@
             <v-icon>mdi-home</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            Home
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-contact-mail</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            Contact
+            Inicio
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -34,7 +26,7 @@
       <v-spacer class="hidden-md-and-up"></v-spacer>
       <nuxt-link class="title-app" to="/">
         <v-toolbar-title class="ma-3" style="color:white">
-          Ecomerce App
+          Abarrofarma
         </v-toolbar-title>
       </nuxt-link>
     </v-app-bar>

@@ -1,8 +1,5 @@
 <template>
   <v-container fluid>
-    <v-card>
-      <v-card-title>Abarrofarma</v-card-title>
-    </v-card>
     <v-snackbar
       v-model="noti.activar"
       :color="noti.color"

@@ -11,7 +11,7 @@ class Arbol {
     this.raiz = null
   }
 
-  buscarBFS(valor) {
+  buscar(valor) {
     let lista = [this.raiz]
     while (lista.length) {
       const nodo = lista.shift()
@@ -26,7 +26,7 @@ class Arbol {
   }
   agregarNodo(valor, nodoDestino) {
     const nodo = new Nodo(valor)
-    const padre = nodoDestino ? this.buscarBFS(nodoDestino) : null
+    const padre = nodoDestino ? this.buscar(nodoDestino) : null
 
     if (padre) {
       nodo.padre = padre.valor

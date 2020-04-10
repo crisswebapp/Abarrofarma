@@ -87,7 +87,7 @@ let busBinariaRec = (valor, array, inicio, final) => {
   }
 }
 
-function data() {
+let data = () => {
   //se crea el arbol
   let t = new Arbol()
   //se agrega el nodo principal
@@ -151,9 +151,7 @@ function data() {
   t.agregarNodo(new Producto('servilletas', '5'), 'abarrotes')
   t.agregarNodo(new Producto('cloro', '20'), 'abarrotes')
   t.agregarNodo(new Producto('desinfectante', '15'), 'abarrotes')
-
-  let result = t.buscarBFS('malacatan')
-  return result
+  return t
 }
 
 export { data, busLineal, busBinaria, Ordenar, busBinariaRec }

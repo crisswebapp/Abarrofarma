@@ -60,14 +60,19 @@ export default {
   },
   methods: {
     generarData() {
-      this.productos = data().hijos[0].hijos.map(producto => {
-        let newprod = {}
-        newprod['nombre'] = producto.valor.nombre
-        newprod['precio'] = producto.valor.precio
-        newprod['cantidad'] = producto.valor.cantidad
-        return newprod
-      })
-      this.productos = Ordenar(this.productos)
+      try {
+        let pdata = data().buscar('malacatan')
+        this.productos = pdata.hijos[0].hijos.map(producto => {
+          let newprod = {}
+          newprod['nombre'] = producto.valor.nombre
+          newprod['precio'] = producto.valor.precio
+          newprod['cantidad'] = producto.valor.cantidad
+          return newprod
+        })
+        this.productos = Ordenar(this.productos)
+      } catch (error) {
+        console.log(error)
+      }
     },
     hacerBusqueda(data, tBusqueda) {
       this.infoBusqueda = {}

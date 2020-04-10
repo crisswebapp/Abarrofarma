@@ -5,6 +5,7 @@
       <v-row>
         <v-col>
           <v-select
+            class="pl-1"
             v-model="dep"
             label="Departamento"
             :items="departamentos"

@@ -5,8 +5,8 @@
       <v-row>
         <v-col>
           <v-select
-            class="pl-1"
             v-model="dep"
+            class="pl-3"
             label="Departamento"
             :items="departamentos"
             @change="actMun"
@@ -15,6 +15,7 @@
         <v-col>
           <v-select
             v-model="mun"
+            class="pr-3"
             label="Municipio"
             :items="municipios[dep]"
             @change="emitChange"

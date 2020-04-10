@@ -55,7 +55,7 @@ export default {
       }
     }
   },
-  created: function() {
+  mounted: function() {
     return this.generarData()
   },
   methods: {

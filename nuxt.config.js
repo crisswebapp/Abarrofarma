@@ -28,7 +28,6 @@ export default {
   /*
    ** Global CSS
    */
-  css: [{ssr:false }],
   /*
    ** Plugins to load before mounting the App
    */

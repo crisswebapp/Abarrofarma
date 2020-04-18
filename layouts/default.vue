@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <VmHeader />
-    <v-content>
+    <v-content v-cloak>
       <nuxt />
     </v-content>
     <VmFooter />
@@ -16,3 +16,10 @@ export default {
   components: { VmFooter, VmHeader }
 }
 </script>
+
+<style>
+[v-cloak] {
+  display: none;
+}
+<style/>
+

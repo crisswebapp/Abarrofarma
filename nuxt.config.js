@@ -29,7 +29,7 @@ export default {
    ** Global CSS
    */
   css: [
-     'vuetify/dist/vuetify.min.css'
+    //'vuetify/dist/vuetify.min.css'
     ],
   /*
    ** Plugins to load before mounting the App

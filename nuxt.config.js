@@ -55,7 +55,6 @@ export default {
     '@nuxtjs/dotenv'
   ],
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
     theme: {
       light: true,
       themes: {

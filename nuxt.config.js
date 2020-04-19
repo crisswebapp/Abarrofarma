@@ -28,13 +28,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [
-      // Load a Node.js module directly (here it's a Sass file)
-      // CSS file in the project
-      '@/assets/css/main.css',
-      // SCSS file in the project
-      '@/assets/css/main.scss'
-  ],
+  css: [],
   /*
    ** Plugins to load before mounting the App
    */
@@ -85,6 +79,18 @@ export default {
    */
   build: {
     extractCSS: true,
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.(css|vue)$/,
+            chunks: 'all',
+            enforce: true
+          }
+        }
+      }
+    },
     /*
      ** You can extend webpack config here
      */

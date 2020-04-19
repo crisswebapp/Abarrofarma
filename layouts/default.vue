@@ -1,11 +1,9 @@
 <template>
   <v-app>
     <VmHeader />
-    <div v-cloak>
-      <v-content >
-        <nuxt />
-      </v-content>
-    </div>
+     <v-content >
+       <nuxt />
+     </v-content>
     <VmFooter />
   </v-app>
 </template>
@@ -19,7 +17,4 @@ export default {
 }
 </script>
 
-<style>
-[v-cloak] > * { display:none; }
-<style/>
 

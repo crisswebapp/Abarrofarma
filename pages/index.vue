@@ -12,7 +12,7 @@
       </v-btn>
     </v-snackbar>
     <v-row align="center" justify="center">
-      <Sucursal v-cloak/>
+      <Sucursal />
       <ContenedorBuscador @click="hacerBusqueda" />
       <ResultadoBusqueda
         :pocision="infoBusqueda.index"
@@ -110,10 +110,4 @@ export default {
   }
 }
 </script>
-
-<style>
-[v-cloak] {
-  display: none;
-}
-<style/>
 

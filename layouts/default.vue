@@ -1,9 +1,11 @@
 <template>
   <v-app>
     <VmHeader />
-    <v-content v-cloak>
-      <nuxt />
-    </v-content>
+    <div v-cloak>
+      <v-content >
+        <nuxt />
+      </v-content>
+    </div>
     <VmFooter />
   </v-app>
 </template>

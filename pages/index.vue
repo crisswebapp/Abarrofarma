@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container>
     <v-snackbar
       v-model="noti.activar"
       :color="noti.color"
@@ -12,7 +12,7 @@
       </v-btn>
     </v-snackbar>
     <v-row align="center" justify="center">
-      <Sucursal />
+      <Sucursal @change="actualizarProd" />
       <ContenedorBuscador @click="hacerBusqueda" />
       <ResultadoBusqueda
         :pocision="infoBusqueda.index"
@@ -106,6 +106,9 @@ export default {
         this.noti.activar = true
         this.noti.msg = error
       }
+    },
+    actualizarProd() {
+      console.log('Actualizando')
     }
   }
 }

@@ -1,28 +1,30 @@
 <template>
   <v-col>
-    <v-card>
-      <v-card-title>Sucursales</v-card-title>
-      <v-row>
-        <v-col>
-          <v-select
-            v-model="dep"
-            class="pl-3"
-            label="Departamento"
-            :items="departamentos"
-            @change="actMun"
-          ></v-select>
-        </v-col>
-        <v-col>
-          <v-select
-            v-model="mun"
-            class="pr-3"
-            label="Municipio"
-            :items="municipios[dep]"
-            @change="emitChange"
-          ></v-select>
-        </v-col>
-      </v-row>
-    </v-card>
+    <v-container>
+      <v-card>
+        <v-card-title>Sucursales</v-card-title>
+        <v-row>
+          <v-col>
+            <v-select
+              v-model="dep"
+              class="pl-3"
+              label="Departamento"
+              :items="departamentos"
+              @change="actMun"
+            ></v-select>
+          </v-col>
+          <v-col>
+            <v-select
+              v-model="mun"
+              class="pr-3"
+              label="Municipio"
+              :items="municipios[dep]"
+              @change="emitChange"
+            ></v-select>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-container>
   </v-col>
 </template>
 

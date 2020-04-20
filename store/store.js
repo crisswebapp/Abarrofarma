@@ -154,4 +154,23 @@ let data = () => {
   return t
 }
 
-export { data, busLineal, busBinaria, Ordenar, busBinariaRec }
+// eslint-disable-next-line no-unused-vars
+let grafo = {
+  Malacatan: { 'San Pablo': 9.4, Catarina: 10.4 },
+  'San pablo': { Malacatan: 10, 'San rafael': 15, Catarina: 16 },
+  Catarina: { Malacatan: 15, 'San pablo': 20 },
+  'San rafael': { 'San pablo': 15 }
+}
+
+let getData = sucursal => {
+  let arbol = this.data()
+  let pdata = arbol.buscar(sucursal).hijos[0].hijos.map(producto => {
+    let newprod = {}
+    newprod['nombre'] = producto.valor.nombre
+    newprod['precio'] = producto.valor.precio
+    newprod['cantidad'] = producto.valor.cantidad
+    return newprod
+  })
+  this.pdata = this.Ordenar(pdata)
+}
+export { data, busLineal, busBinaria, Ordenar, busBinariaRec, getData }

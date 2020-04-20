@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <VmHeader />
-    <v-content>
-      <nuxt />
-    </v-content>
+     <v-content >
+       <nuxt />
+     </v-content>
     <VmFooter />
   </v-app>
 </template>
@@ -16,3 +16,5 @@ export default {
   components: { VmFooter, VmHeader }
 }
 </script>
+
+

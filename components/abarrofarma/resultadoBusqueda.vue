@@ -6,13 +6,18 @@
         <v-row>
           <v-col>
             <span v-if="res.tienda">
-              <v-card-text v-if="res.tienda.enOtra" class="text-center">
-                No tenemos disponible el producto en esta, pero esta en
-                {{ res.tienda.sucursal }} que es la sucursal mas cercana donde
-                si tenemos existencia, esta a {{ res.tienda.distancia }}
-                kilometros de su ubicacion actual
+              <v-card-text
+                v-if="res.tienda.enOtra"
+                class="text-center font-weight-black"
+              >
+                Producto no disponible en esta tienda!
+                <p class="red--text darker-4 ">
+                  Lo puedes encontrar en :
+                  {{ res.tienda.sucursal + ' a ' + res.tienda.distancia }}
+                  kilometros de su ubicacion actual
+                </p>
               </v-card-text>
-              <v-card-text v-else class="text-center">
+              <v-card-text v-else class="text-center font-weight-black">
                 Disponible en tu misma localidad
               </v-card-text>
             </span>

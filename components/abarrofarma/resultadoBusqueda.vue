@@ -11,7 +11,7 @@
                 class="text-center font-weight-black"
               >
                 Producto no disponible en esta tienda!
-                <p class="red--text darker-4 ">
+                <p class="red--text darker-4">
                   Lo puedes encontrar en :
                   {{ res.tienda.sucursal + ' a ' + res.tienda.distancia }}
                   kilometros de su ubicacion actual
@@ -25,24 +25,24 @@
         </v-row>
         <v-row>
           <v-col>
-            <v-card-text v-if="res.producto">
+            <v-card-text v-if="res.producto" class="font-weight-bold">
               Nombre Producto : {{ res.producto.nombre }}
             </v-card-text>
           </v-col>
           <v-col>
-            <v-card-text v-if="res.producto">
+            <v-card-text v-if="res.producto" class="font-weight-bold">
               Cantidad Actual : {{ res.producto.cantidad }}
             </v-card-text>
           </v-col>
         </v-row>
         <v-row>
           <v-col>
-            <v-card-text v-if="res.rBusqueda">
+            <v-card-text v-if="res.rBusqueda" class="font-weight-bold">
               Pocision : {{ res.rBusqueda.index }}
             </v-card-text>
           </v-col>
           <v-col>
-            <v-card-text v-if="res.rBusqueda">
+            <v-card-text v-if="res.rBusqueda" class="font-weight-bold">
               Tiempo Busqueda : {{ res.rBusqueda.tiempo }}
             </v-card-text>
           </v-col>

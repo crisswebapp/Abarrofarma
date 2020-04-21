@@ -2,8 +2,8 @@ let Resolver = (grafo, inicio) => {
   let soluciones = []
   soluciones[inicio] = []
   soluciones[inicio].distancia = 0
-  let buscar = true
-  while (buscar) {
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
     let nodo = null
     let vecinos = null
     let distancia = Infinity
@@ -22,7 +22,7 @@ let Resolver = (grafo, inicio) => {
       }
     }
     if (distancia === Infinity) {
-      buscar = false
+      break
     }
     soluciones[vecinos] = nodo.concat(vecinos)
     soluciones[vecinos].distancia = distancia
@@ -30,4 +30,4 @@ let Resolver = (grafo, inicio) => {
   return soluciones
 }
 
-export { Resolver }
+export default Resolver

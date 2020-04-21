@@ -14,24 +14,17 @@
     <v-row align="center" justify="center">
       <Sucursal @change="actualizarProd" />
       <ContenedorBuscador @click="hacerBusqueda" />
-      <ResultadoBusqueda
-        :pocision="infoBusqueda.index"
-        :tiempo="infoBusqueda.tiempo"
-        :nombre="infoBusqueda.info"
-      />
+      <ResultadoBusqueda :res="infoBusqueda" />
       <ContnedorProductos :productos="productos" />
     </v-row>
   </v-container>
 </template>
 
 <script>
-import {
-  data,
-  busLineal,
-  busBinaria,
-  Ordenar,
-  busBinariaRec
-} from '~/store/store'
+import { getSucursal, getData } from '~/store/store'
+import busLineal from '~/store/Busquedas/BusquedaLineal'
+import busBinaria from '~/store/Busquedas/BusquedaBinaria'
+import busBinariaRec from '~/store/Busquedas/BusquedaBinariaRecursiva'
 import Sucursal from '~/components/abarrofarma/sucursal'
 import ContnedorProductos from '~/components/abarrofarma/contenedorProductos'
 import ResultadoBusqueda from '~/components/abarrofarma/resultadoBusqueda'
@@ -45,7 +38,8 @@ export default {
   },
   data() {
     return {
-      productos: null,
+      sucursal: 'Malacatan',
+      productos: [],
       infoBusqueda: {},
       noti: {
         msg: '',
@@ -61,56 +55,54 @@ export default {
   methods: {
     generarData() {
       try {
-        let pdata = data().buscar('malacatan')
-        this.productos = pdata.hijos[0].hijos.map(producto => {
-          let newprod = {}
-          newprod['nombre'] = producto.valor.nombre
-          newprod['precio'] = producto.valor.precio
-          newprod['cantidad'] = producto.valor.cantidad
-          return newprod
-        })
-        this.productos = Ordenar(this.productos)
+        this.productos = []
+        this.productos = getData(this.sucursal)
       } catch (error) {
         console.log(error)
       }
     },
     hacerBusqueda(data, tBusqueda) {
       this.infoBusqueda = {}
+      // eslint-disable-next-line no-unused-vars
+      let res = null
       try {
         switch (tBusqueda) {
           case 'Busqueda Lineal':
-            this.infoBusqueda = busLineal(
+            res = getSucursal(
+              this.sucursal,
               data.toLowerCase().trim(),
-              this.productos
+              busLineal
             )
-            this.noti.activar = false
+            this.infoBusqueda = res
             break
           case 'Busqueda Binaria':
-            this.infoBusqueda = busBinaria(
+            res = getSucursal(
+              this.sucursal,
               data.toLowerCase().trim(),
-              this.productos
+              busBinaria
             )
+            this.infoBusqueda = res
             this.noti.activar = false
             break
           case 'Busqueda Binaria Recursiva':
-            this.infoBusqueda = busBinariaRec(
+            res = getSucursal(
+              this.sucursal,
               data.toLowerCase().trim(),
-              this.productos,
-              0,
-              this.productos.length - 1
+              busBinariaRec
             )
+            this.infoBusqueda = res
             this.noti.activar = false
             break
         }
       } catch (error) {
         this.noti.activar = true
-        this.noti.msg = error
+        this.noti.msg = error.message
       }
     },
-    actualizarProd() {
-      console.log('Actualizando')
+    actualizarProd(mun) {
+      this.sucursal = mun
+      this.generarData()
     }
   }
 }
 </script>
-

@@ -27,9 +27,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [
-    'vuetify/dist/vuetify.min.css'
-    ],
+  css: ['vuetify/dist/vuetify.min.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -40,11 +38,7 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-<<<<<<< HEAD
     '@nuxtjs/vuetify'
-=======
-    '@nuxtjs/vuetify', 
->>>>>>> 95eba04c6abe41c55014b8dc833f2ee6ad5791e3
   ],
 
   /*
@@ -57,26 +51,6 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv'
   ],
-<<<<<<< HEAD
-
-=======
-  vuetify: {
-    theme: {
-      light: true,
-      themes: {
-        light: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
-    }
-  },
->>>>>>> 95eba04c6abe41c55014b8dc833f2ee6ad5791e3
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -86,11 +60,9 @@ export default {
    ** Build configuration
    */
   build: {
-    
     /*
      ** You can extend webpack config here
      */
-    extractCSS: true,
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {

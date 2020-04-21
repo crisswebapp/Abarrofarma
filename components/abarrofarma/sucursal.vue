@@ -35,19 +35,15 @@ export default {
     return {
       dep: 'San Marcos',
       mun: 'Malacatan',
-      departamentos: [
-        'San Marcos',
-        'Huehuetenango',
-        'Quetzaltenango',
-        'Retalhuleu'
-      ],
+      departamentos: ['San Marcos'],
       municipios: {
         'San Marcos': [
           'San Marcos',
-          'San pablo',
+          'San Rafael',
+          'San Pablo',
           'Malacatan',
           'Catarina',
-          'Tecun'
+          'Tecun Uman'
         ],
         Huehuetenango: [
           'Huehuetenango',
@@ -58,7 +54,7 @@ export default {
         ],
         Retalhuleu: [
           'Retalhuleu',
-          'Las pilas',
+          'Las Pilas',
           'Zapotitlan',
           'Mazatenango',
           'Colomba'
@@ -66,7 +62,7 @@ export default {
         Quetzaltenango: [
           'Quetzaltenango',
           'Salcaja',
-          'San carlos sija',
+          'San Carlos Sija',
           'Olintepeque'
         ]
       }
@@ -78,6 +74,7 @@ export default {
     },
     actMun() {
       this.mun = this.municipios[this.dep][0]
+      this.emitChange()
     }
   }
 }

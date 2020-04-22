@@ -3,7 +3,12 @@
     <v-row class="full-height">
       <v-col cols="12">
         <v-card>
-          <v-card-title>Lista de Productos</v-card-title>
+          <v-card-actions>
+            <v-btn @click="getPosts">
+              get posts
+            </v-btn>
+          </v-card-actions>
+          <v-card-title> Lista de Productos {{ posts.title }} </v-card-title>
         </v-card>
       </v-col>
     </v-row>
@@ -24,6 +29,8 @@ export default {
   components: { VmProducto },
   data() {
     return {
+      posts: {},
+      title: null,
       listaProductos: [
         {
           id: 1,
@@ -62,6 +69,18 @@ export default {
           image: 'https://bulma.io/images/placeholders/1280x960.png'
         }
       ]
+    }
+  },
+  mounted() {
+    return this.getPosts()
+  },
+  methods: {
+    async getPosts() {
+      let posts = await this.$axios.$get(
+        'https://jsonplaceholder.typicode.com/todos/1'
+      )
+      console.log(posts)
+      this.posts = posts
     }
   }
 }

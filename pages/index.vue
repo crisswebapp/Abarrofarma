@@ -68,12 +68,17 @@ export default {
       try {
         switch (tBusqueda) {
           case 'Busqueda Lineal':
-            res = getSucursal(
-              this.sucursal,
-              data.toLowerCase().trim(),
-              busLineal
-            )
-            this.infoBusqueda = res
+            if (data.toLowerCase().trim() != '') {
+              res = getSucursal(
+                this.sucursal,
+                data.toLowerCase().trim(),
+                busLineal
+              )
+              this.infoBusqueda = res
+            } else {
+              this.noti.activar = true
+              this.noti.msg = 'Por favor ingrese nombre de un producto'
+            }
             break
           case 'Busqueda Binaria':
             res = getSucursal(
@@ -96,7 +101,7 @@ export default {
         }
       } catch (error) {
         this.noti.activar = true
-        this.noti.msg = error.message
+        this.noti.msg = 'Producto no disponible'
       }
     },
     actualizarProd(mun) {

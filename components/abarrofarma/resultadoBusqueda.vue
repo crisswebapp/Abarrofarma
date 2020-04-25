@@ -1,7 +1,7 @@
 <template>
   <v-col>
     <v-container>
-      <v-card v-if="res">
+      <v-card v-if="res.tienda">
         <v-card-title>Informacion de busqueda</v-card-title>
         <v-row>
           <v-col>

@@ -86,6 +86,7 @@
 export default {
   data() {
     return {
+      //Todos los datos usados en el programa
       lista: [],
       bValue: '',
       bResultado: '',
@@ -102,24 +103,30 @@ export default {
     }
   },
   computed: {
+    ///Propiedad para obtener la lista de datos
     getLista() {
       return this.lista
     },
+    //Propiedad para obtener la cantidad de datos
     getNdatos() {
       return this.lista.length
     }
   },
   methods: {
+    //Metodo para agregar un nuevo dato a la lista
     addLista() {
+      //Verificamos si el dato es numerico antes de agregarlo
       if (this.value && !isNaN(this.value)) {
         this.lista.push(parseInt(this.value))
         this.value = ''
+        //Calculamos todos los datos estadisticos
         this.getMediana()
         this.getMedia()
         this.getModa()
         this.getCuartiles()
       }
     },
+    //Metodo para obtener la mediana
     getMediana() {
       let mediana
       let lista = this.getLista
@@ -133,6 +140,7 @@ export default {
       }
       this.mediana = mediana
     },
+    //Metodo para obtener la media
     getMedia() {
       let media
       let lista = this.getLista
@@ -142,6 +150,7 @@ export default {
       }
       this.media = media.toFixed(2)
     },
+    //Metodo para obtener la moda
     getModa() {
       let moda
       let lista = this.getLista
@@ -161,6 +170,8 @@ export default {
       }
       this.moda = moda
     },
+    /*Metodo que calcula los cuadriles basados en la funcion de percentiles 
+    sabiendo que los cuadriles 1,2,3 son los percentiles 25,50,75 */
     getCuartiles() {
       this.cuartil_1 = this.genPercentil(25)
       this.cuartil_2 = this.genPercentil(50)
@@ -169,6 +180,7 @@ export default {
       this.percentil_1 = this.genPercentil(1)
       this.percentil_2 = this.genPercentil(2)
     },
+    //Metodo para obtener el percentil desde el 1 hasta el 99
     genPercentil(p) {
       let lista = this.getLista
       let percentil
@@ -183,6 +195,7 @@ export default {
       }
       return percentil
     },
+    //Metodo para buscar un dato, usando la busqueda lineal
     buscar() {
       let lista = this.lista
       let value = parseInt(this.bValue)
@@ -205,4 +218,3 @@ export default {
   }
 }
 </script>
-<style></style>

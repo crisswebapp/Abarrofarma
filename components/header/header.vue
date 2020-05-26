@@ -26,7 +26,7 @@
       <v-spacer class="hidden-md-and-up"></v-spacer>
       <nuxt-link class="title-app" to="/">
         <v-toolbar-title class="ma-3" style="color:white">
-          Abarrofarma
+          {{ $route.path === '/estadistica/' ? 'Estadistica' : 'Abarrofarma' }}
         </v-toolbar-title>
       </nuxt-link>
     </v-app-bar>

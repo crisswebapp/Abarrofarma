@@ -25,7 +25,6 @@ Para la resolución de este proyecto optamos por utilizar tecnología web  y com
 
 
 ## Build Setup
-
 ```bash
 # install dependencies
 $ npm install
